@@ -16,4 +16,9 @@ the purpose of this weekend assignment is to program a game via oop programming 
 clubs,hearts,spades,diamonds
 # values
 ace=1,numbers from 2 to 10 is equal  to the face number (2 card = 2) except 7 which is equal to 0, jack=-1, queen=12,
-king=13, every exact pair of cards is equal to 0
+king=13, every exact pair of cards is equal to 0.
+# steps
+step 1:Create a new repository and set up the project structure,create a new js file and a readme.md.
+step 2:implement game logic,create a deck constructor function,same for card.
+in addition we will be implementing the following methods:shuffle,deal,draw,discard, we will use loop to handle
+player turns.
