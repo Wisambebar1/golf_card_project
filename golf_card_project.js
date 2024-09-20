@@ -44,5 +44,5 @@ let player2={
     faceUpCards: [],
     faceDownCards: []
 };
-let discardPile=[deck.draw()]
+let discardPile=[deck.draw()];
 
