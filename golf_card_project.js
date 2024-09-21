@@ -153,9 +153,11 @@ function getCardValue(cardValue) {
       case '10':
         return parseInt(cardValue);
       case 'Jack':
+        return -1
       case 'Queen':
+        return 12
       case 'King':
-        return 10;
+        return 13;
       default:
         return 0;
     }
