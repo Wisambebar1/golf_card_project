@@ -32,7 +32,11 @@ function Deck(){
         this.cards.push(card)
     }
 }
-const readline = require('readline');
+const readline = require("readline");
+let rl=readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
 let deck = new Deck();
 deck.shuffle();
 let player1 = {
@@ -51,10 +55,6 @@ printBoard();
 askUserInput();
 /*--------------------------------------------------------------------------------------------------------------------*/
 // cli.js
-let rl=readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
 function printBoard(){
   console.log(`Player 1 Hand: ${player1.hand.map(card => card.value).join(', ')}`);
   console.log(`Player 1 Face Up Cards: ${player1.faceUpCards.map(card => card.value).join(', ')}`);
