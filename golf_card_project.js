@@ -68,3 +68,50 @@ function askUserInput(){
         handleUserInput(answer);    
     });
 }
+function handleUserInput(input) {
+    switch (input.trim().toLowerCase()) {
+      case 'draw':
+        // draw a card from the deck
+        let drawnCard = deck.draw();
+        console.log(`You drew a ${drawnCard.value} of ${drawnCard.suit}`);
+        rl.question(`What would you like to do with the drawn card? (replace, discard, or end turn) `, (answer) => {
+            handleUserInput(answer);
+          });
+          break;
+          case 'replace':
+            rl.question(`Which face down card would you like to replace? (1-${currentPlayer === 'player1' ? player1.faceDownCards.length : player2.faceDownCards.length}) `, (answer) => {
+                let cardIndex = parseInt(answer) - 1;
+                if (cardIndex >= 0 && cardIndex < (currentPlayer === 'player1' ? player1.faceDownCards.length : player2.faceDownCards.length)) {
+                  if (currentPlayer === 'player1') {
+                    player1.faceDownCards[cardIndex] = drawnCard;
+                  } else {
+                    player2.faceDownCards[cardIndex] = drawnCard;
+                  }
+                  console.log(`Replaced face down card ${cardIndex + 1} with ${drawnCard.value} of ${drawnCard.suit}`);
+                  printBoard();
+                  askUserInput();
+                } else {
+                  console.log('Invalid card index. Please try again.');
+                  askUserInput();
+                }
+              });
+              break;
+      break;
+        case 'discard':
+        // discard a card from the hand
+        // todo: implement card discard logic
+        break;
+        case 'end turn':
+        // end the current player's turn
+        currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';
+        printBoard();
+        askUserInput();
+        break;
+        default:
+        console.log('Invalid input. Please try again.');
+        askUserInput();
+    }
+}
+
+printBoard();
+askUserInput();
