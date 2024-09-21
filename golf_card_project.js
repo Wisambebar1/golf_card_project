@@ -52,3 +52,19 @@ let rl=readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
+let currentPlayer="player1"
+function printBoard(){
+  console.log(`Player 1 Hand: ${player1.hand.map(card => card.value).join(', ')}`);
+  console.log(`Player 1 Face Up Cards: ${player1.faceUpCards.map(card => card.value).join(', ')}`);
+  console.log(`Player 1 Face Down Cards: ${player1.faceDownCards.map(card => card.value).join(', ')}`);
+  console.log(`Player 2 Hand: ${player2.hand.map(card => card.value).join(', ')}`);
+  console.log(`Player 2 Face Up Cards: ${player2.faceUpCards.map(card => card.value).join(', ')}`);
+  console.log(`Player 2 Face Down Cards: ${player2.faceDownCards.map(card => card.value).join(', ')}`);
+  console.log(`Discard Pile: ${discardPile.map(card => card.value).join(', ')}`);
+  console.log(`Current Player: ${currentPlayer}`);
+}
+function askUserInput(){
+    rl.question(`what ur next step,${currentPlayer}?(draw, replace, discard, or end turn)`,(answer)=>{
+        handleUserInput(answer);    
+    });
+}
