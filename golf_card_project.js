@@ -133,10 +133,33 @@ let playerHand = [];
 function calculateScore(hand) {
   let score = 0;
   for (let i = 0; i < hand.length; i++) {
-    score += hand[i];
+    let cardValue = getCardValue(hand[i].value);
+    score += cardValue;
   }
   return score;
 }
+function getCardValue(cardValue) {
+    switch (cardValue) {
+      case 'Ace':
+        return 1;
+      case '2':
+      case '3':
+      case '4':
+      case '5':
+      case '6':
+      case '7':
+      case '8':
+      case '9':
+      case '10':
+        return parseInt(cardValue);
+      case 'Jack':
+      case 'Queen':
+      case 'King':
+        return 10;
+      default:
+        return 0;
+    }
+  }
 
 // Function to check for game over
 function checkGameOver(hand) {
