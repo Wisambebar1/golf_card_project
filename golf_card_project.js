@@ -32,6 +32,20 @@ function Deck(){
         this.cards.push(card)
     }
 }
+let deck = new Deck();
+deck.shuffle();
+let player1 = {
+  hand: deck.deal(),
+  faceUpCards: [],
+  faceDownCards: []
+};
+let player2 = {
+  hand: deck.deal(),
+  faceUpCards: [],
+  faceDownCards: []
+};
+let discardPile = [deck.draw()];
+printBoard();
 /*--------------------------------------------------------------------------------------------------------------------*/
 // cli.js
 const readline=require("readline");
@@ -169,19 +183,3 @@ function updateScoreAndCheckGameOver(hand) {
   }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
-// writing a test for the code
-let deck = new Deck();
-deck.shuffle();
-let player1 = {
-  hand: deck.deal(),
-  faceUpCards: [],
-  faceDownCards: []
-};
-let player2 = {
-  hand: deck.deal(),
-  faceUpCards: [],
-  faceDownCards: []
-};
-let discardPile = [deck.draw()];
-printBoard();
-askUserInput();
