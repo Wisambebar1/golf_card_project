@@ -22,3 +22,15 @@ step 1:Create a new repository and set up the project structure,create a new js 
 step 2:implement game logic,create a deck constructor function,same for card.
 in addition we will be implementing the following methods:shuffle,deal,draw,discard, we will use loop to handle
 player turns.
+step 3:create a cli.js file,implement the printboard to print the gameboard to the terminal,
+implement the askuserinput method to ask the user for input,
+handleuserinput method implemented.
+step 4:implement the calculatescore method,implement the checkgameover method and implement declarewinner method.
+step 5: testing.
+# timeline
+this time line is an approx and not quite accurate, take it in moderation,
+step 1:30 mins
+step 2: 1 hours.
+step 3:1 hours
+step 4:1 hour
+step 5:30 mins
