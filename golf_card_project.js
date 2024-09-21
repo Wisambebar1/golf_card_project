@@ -52,7 +52,7 @@ let player2 = {
   faceDownCards: []
 };
 let discardPile = [deck.draw()];
-let currentPlayer=player1.name;
+let currentPlayer=player1;
 printBoard();
 askUserInput();
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -65,7 +65,7 @@ function printBoard(){
   console.log(`Player 2 Face Up Cards: ${player2.faceUpCards.map(card => card.value).join(', ')}`);
   console.log(`Player 2 Face Down Cards: ${player2.faceDownCards.map(card => card.value).join(', ')}`);
   console.log(`Discard Pile: ${discardPile.map(card => card.value).join(', ')}`);
-  console.log(`Current Player: ${currentPlayer}`);
+  console.log(`Current Player: ${currentPlayer.name}`);
 }
 function askUserInput(){
     rl.question(`what ur next step,${currentPlayer.name}?(draw, replace, discard, or end turn)`,(answer)=>{
@@ -117,7 +117,7 @@ function handleUserInput(input) {
               break;
         case 'end turn':
         // end the current player's turn
-        currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';
+        currentPlayer = currentPlayer === player1 ? player2 : player1;
         printBoard();
         askUserInput();
         break;
