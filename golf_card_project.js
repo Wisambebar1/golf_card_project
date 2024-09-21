@@ -32,19 +32,6 @@ function Deck(){
         this.cards.push(card)
     }
 }
-let deck=new Deck();
-deck.shuffle();
-let player1={
-    hand:deck.deal(),
-    faceUpCards: [],
-    faceDownCards: []
-};
-let player2={
-    hand:deck.deal(),
-    faceUpCards: [],
-    faceDownCards: []
-};
-let discardPile=[deck.draw()];
 /*--------------------------------------------------------------------------------------------------------------------*/
 // cli.js
 const readline=require("readline");
@@ -181,3 +168,18 @@ function updateScoreAndCheckGameOver(hand) {
     // Game over logic here, e.g., display a winning message orr restart the game
   }
 }
+/*--------------------------------------------------------------------------------------------------------------------*/
+// writing a test for the code
+let deck = new Deck();
+deck.shuffle();
+let player1 = {
+  hand: deck.deal(),
+  faceUpCards: [],
+  faceDownCards: []
+};
+let player2 = {
+  hand: deck.deal(),
+  faceUpCards: [],
+  faceDownCards: []
+};
+let discardPile = [deck.draw()];
