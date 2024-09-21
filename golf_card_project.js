@@ -52,7 +52,7 @@ let player2 = {
   faceDownCards: []
 };
 let discardPile = [deck.draw()];
-let currentPlayer=player1;
+let currentPlayer=player1.name;
 printBoard();
 askUserInput();
 /*--------------------------------------------------------------------------------------------------------------------*/
