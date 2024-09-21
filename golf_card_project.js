@@ -183,3 +183,5 @@ let player2 = {
   faceDownCards: []
 };
 let discardPile = [deck.draw()];
+printBoard();
+askUserInput();
