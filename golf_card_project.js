@@ -40,11 +40,13 @@ let rl=readline.createInterface({
 let deck = new Deck();
 deck.shuffle();
 let player1 = {
+    name: 'Player1',
   hand: deck.deal(),
   faceUpCards: [],
   faceDownCards: []
 };
 let player2 = {
+  name: 'Player2',
   hand: deck.deal(),
   faceUpCards: [],
   faceDownCards: []
