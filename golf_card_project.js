@@ -32,6 +32,7 @@ function Deck(){
         this.cards.push(card)
     }
 }
+const readline = require('readline');
 let deck = new Deck();
 deck.shuffle();
 let player1 = {
