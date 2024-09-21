@@ -66,7 +66,7 @@ function printBoard(){
   console.log(`Current Player: ${currentPlayer}`);
 }
 function askUserInput(){
-    rl.question(`what ur next step,${currentPlayer.name}?(draw, replace, discard, or end turn)`,(answer)=>{
+    rl.question(`what ur next step,${currentPlayer}?(draw, replace, discard, or end turn)`,(answer)=>{
         handleUserInput(answer);    
     });
 }
