@@ -47,4 +47,8 @@ let player2={
 let discardPile=[deck.draw()];
 /*--------------------------------------------------------------------------------------------------------------------*/
 // cli.js
-
+const readline=require("readline");
+let rl=readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
