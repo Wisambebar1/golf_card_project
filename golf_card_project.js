@@ -45,7 +45,9 @@ let player2 = {
   faceDownCards: []
 };
 let discardPile = [deck.draw()];
+let currentPlayer=player1;
 printBoard();
+askUserInput();
 /*--------------------------------------------------------------------------------------------------------------------*/
 // cli.js
 const readline=require("readline");
@@ -53,7 +55,6 @@ let rl=readline.createInterface({
     input: process.stdin,
     output: process.stdout
 })
-let currentPlayer="player1"
 function printBoard(){
   console.log(`Player 1 Hand: ${player1.hand.map(card => card.value).join(', ')}`);
   console.log(`Player 1 Face Up Cards: ${player1.faceUpCards.map(card => card.value).join(', ')}`);
