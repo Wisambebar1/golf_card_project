@@ -165,7 +165,7 @@ function updateScoreAndCheckGameOver(hand) {
   playerScore = calculateScore(hand);
   if (checkGameOver(hand)) {
     console.log(`Game over! Your final score is ${playerScore}.`);
-    // Game over logic here, e.g., display a winning message orr restart the game
+    // Game over logic here, e.g., display a winning message or restart the game
   }
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
