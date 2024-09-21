@@ -96,11 +96,21 @@ function handleUserInput(input) {
                 }
               });
               break;
-      break;
-        case 'discard':
-        // discard a card from the hand
-        // todo: implement card discard logic
-        break;
+              case 'discard':
+                rl.question(`Which card would you like to discard? (1-${currentPlayer === 'player1' ? player1.hand.length : player2.hand.length}) `, (answer) => {
+                    let cardIndex = parseInt(answer) - 1;
+                    if (cardIndex >= 0 && cardIndex < (currentPlayer === 'player1' ? player1.hand.length : player2.hand.length)) {
+                    let discardedCard = currentPlayer === 'player1' ? player1.hand.splice(cardIndex, 1)[0] : player2.hand.splice(cardIndex, 1)[0];
+                    discardPile.push(discardedCard);
+                    console.log(`Discarded ${discardedCard.value} of ${discardedCard.suit}`);
+                    printBoard();
+                    askUserInput();
+                    } else {
+                    console.log('Invalid card index. Please try again.');
+                    askUserInput();
+                    }
+              });
+              break;
         case 'end turn':
         // end the current player's turn
         currentPlayer = currentPlayer === 'player1' ? 'player2' : 'player1';
@@ -112,6 +122,37 @@ function handleUserInput(input) {
         askUserInput();
     }
 }
-
 printBoard();
 askUserInput();
+/*--------------------------------------------------------------------------------------------------------------------*/
+// Initialize the player's score and hand
+let playerScore = 0;
+let playerHand = [];
+
+// Function to calculate the score of a hand
+function calculateScore(hand) {
+  let score = 0;
+  for (let i = 0; i < hand.length; i++) {
+    score += hand[i];
+  }
+  return score;
+}
+
+// Function to check for game over
+function checkGameOver(hand) {
+  let score = calculateScore(hand);
+  if (score <= 10) {
+    return true; // Game over, player has won
+  } else {
+    return false; // Game not over yet
+  }
+}
+
+// Update the player's score and check for game over
+function updateScoreAndCheckGameOver(hand) {
+  playerScore = calculateScore(hand);
+  if (checkGameOver(hand)) {
+    console.log(`Game over! Your final score is ${playerScore}.`);
+    // Game over logic here, e.g., display a winning message or restart the game
+  }
+}
